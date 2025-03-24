@@ -1,0 +1,152 @@
+[
+    {
+        "vendedor": "Juan Pérez",
+        "cliente": "Empresa A",
+        "ciudad": "Madrid",
+        "direccion": "Calle Mayor 1",
+        "nota": "Reunión para discutir contrato",
+        "fecha": "2025-03-25T10:00:00",
+        "viaticos": 200000.0,
+        "tipo": "reunión"
+    },
+    {
+        "vendedor": "Ana Gómez",
+        "cliente": "Empresa B",
+        "ciudad": "Barcelona",
+        "direccion": "Avenida Diagonal 123",
+        "nota": "Presentación de producto",
+        "fecha": "2025-03-26T11:00:00",
+        "viaticos": 300000.0,
+        "tipo": "visita"
+    },
+    {
+        "vendedor": "Luis Martínez",
+        "cliente": "Empresa C",
+        "ciudad": "Valencia",
+        "direccion": "Calle Colón 45",
+        "nota": "Negociación de precios",
+        "fecha": "2025-03-27T09:30:00",
+        "viaticos": 240000.0,
+        "tipo": "reunión"
+    },
+    {
+        "vendedor": "María López",
+        "cliente": "Empresa D",
+        "ciudad": "Sevilla",
+        "direccion": "Calle Sierpes 10",
+        "nota": "Revisión de contrato",
+        "fecha": "2025-03-28T14:00:00",
+        "viaticos": 220000.0,
+        "tipo": "reunión"
+    },
+    {
+        "vendedor": "Carlos Sánchez",
+        "cliente": "Empresa E",
+        "ciudad": "Zaragoza",
+        "direccion": "Calle Alfonso I 22",
+        "nota": "Demostración de producto",
+        "fecha": "2025-03-29T16:00:00",
+        "viaticos": 280000.0,
+        "tipo": "visita"
+    },
+    {
+        "vendedor": "Laura Fernández",
+        "cliente": "Empresa F",
+        "ciudad": "Bilbao",
+        "direccion": "Gran Vía 85",
+        "nota": "Reunión de seguimiento",
+        "fecha": "2025-03-30T13:00:00",
+        "viaticos": 260000.0,
+        "tipo": "reunión"
+    },
+    {
+        "vendedor": "Pedro García",
+        "cliente": "Empresa G",
+        "ciudad": "Málaga",
+        "direccion": "Calle Larios 12",
+        "nota": "Presentación de propuesta",
+        "fecha": "2025-03-31T10:30:00",
+        "viaticos": 320000.0,
+        "tipo": "visita"
+    },
+    {
+        "vendedor": "Elena Ruiz",
+        "cliente": "Empresa H",
+        "ciudad": "Murcia",
+        "direccion": "Gran Vía 33",
+        "nota": "Revisión de proyecto",
+        "fecha": "2025-04-01T11:30:00",
+        "viaticos": 200000.0,
+        "tipo": "reunión"
+    },
+    {
+        "vendedor": "Javier Torres",
+        "cliente": "Empresa I",
+        "ciudad": "Valladolid",
+        "direccion": "Calle Santiago 5",
+        "nota": "Negociación de contrato",
+        "fecha": "2025-04-02T15:00:00",
+        "viaticos": 220000.0,
+        "tipo": "reunión"
+    },
+    {
+        "vendedor": "Isabel Romero",
+        "cliente": "Empresa J",
+        "ciudad": "Córdoba",
+        "direccion": "Calle Cruz Conde 18",
+        "nota": "Reunión inicial",
+        "fecha": "2025-04-03T09:00:00",
+        "viaticos": 240000.0,
+        "tipo": "reunión"
+    },
+    {
+        "vendedor": "Miguel Hernández",
+        "cliente": "Empresa K",
+        "ciudad": "Alicante",
+        "direccion": "Avenida Maisonnave 10",
+        "nota": "Presentación de servicios",
+        "fecha": "2025-04-04T10:00:00",
+        "viaticos": 280000.0,
+        "tipo": "visita"
+    },
+    {
+        "vendedor": "Patricia Morales",
+        "cliente": "Empresa L",
+        "ciudad": "Granada",
+        "direccion": "Calle Recogidas 25",
+        "nota": "Revisión de contrato",
+        "fecha": "2025-04-05T11:00:00",
+        "viaticos": 260000.0,
+        "tipo": "reunión"
+    },
+    {
+        "vendedor": "Fernando Díaz",
+        "cliente": "Empresa M",
+        "ciudad": "Oviedo",
+        "direccion": "Calle Uría 15",
+        "nota": "Negociación de precios",
+        "fecha": "2025-04-06T12:00:00",
+        "viaticos": 300000.0,
+        "tipo": "reunión"
+    },
+    {
+        "vendedor": "Sara Jiménez",
+        "cliente": "Empresa N",
+        "ciudad": "Santander",
+        "direccion": "Paseo Pereda 8",
+        "nota": "Reunión de seguimiento",
+        "fecha": "2025-04-07T13:00:00",
+        "viaticos": 240000.0,
+        "tipo": "reunión"
+    },
+    {
+        "vendedor": "David Castillo",
+        "cliente": "Empresa O",
+        "ciudad": "Pamplona",
+        "direccion": "Calle Estafeta 3",
+        "nota": "Presentación de producto",
+        "fecha": "2025-04-08T14:00:00",
+        "viaticos": 320000.0,
+        "tipo": "visita"
+    }
+]
