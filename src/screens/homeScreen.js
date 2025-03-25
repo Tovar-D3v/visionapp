@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
+import CardHome from "../components/CardHome";
 
 const cardData = [
   {
@@ -36,19 +37,16 @@ export default function HomeScreen() {
         <Image source={require("../../assets/images/user-admin.jpeg")} style={styles.profileImage} />
       </View>
 
-      //TODO: Ingresar esto a un componente llamado CardHome y solo importarlo aquí
+      {/* Usamos el componente CardHome */}
       <View style={styles.grid}>
         {cardData.map((card, index) => (
-          <View key={index} style={[styles.card, { backgroundColor: card.color }]}>
-            <Image source={card.image} style={styles.cardImage} />
-            <Text style={styles.cardTitle}>{card.title}</Text>
-            <Text style={styles.cardContent}>{card.text}</Text>
-          </View>
+          <CardHome key={index} {...card} />
         ))}
       </View>
     </ScrollView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {

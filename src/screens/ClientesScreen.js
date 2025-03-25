@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import clientes from "../utils/clientes.json";
 import { Ionicons, MaterialIcons, AntDesign } from '@expo/vector-icons';
+import ListClientes from "../components/ListClientes";
 
 export default function ClientesScreen() {
   const [search, setSearch] = useState("");
@@ -46,28 +47,10 @@ export default function ClientesScreen() {
         </TouchableOpacity>
       </View>
 
-      //TODO: Meter esto en un componente llamado ListClientes y solo importarlo aquí
-      <View style={styles.list}>
-        {filteredClientes.map((cliente, index) => (
-          <View key={index} style={styles.card}>
-            <View style={{ marginRight: 10, justifyContent: "center", padding: 10, backgroundColor: cliente.color, borderRadius: 10 }}>
-              <AntDesign name="user" size={30} color="#000" />
-            </View>
-            <View style={styles.cardText}>
-              <Text style={styles.cardTitle}>
-                {cliente.nombre} {cliente.apellidos}
-              </Text>
-              <View style={{ display: "flex", flexDirection: "row", gap: 7, marginTop: 5 }}>
-                <Text style={{ borderRadius: 6, backgroundColor: "#e6d5ff", paddingHorizontal: 5}}>{cliente.empresa}</Text>
-                <Text style={styles.cardContent}>{cliente.cargo}</Text>
-              </View>
-            </View>
-            <View style={{ justifyContent: "center" }}>
-              <Ionicons name="chevron-forward" size={24} color="#000" />
-            </View>
-          </View>
-        ))}
-      </View>
+      
+
+      {/* ✅ Se usa el componente modularizado */}
+      <ListClientes clientes={filteredClientes} />
     </ScrollView>
   );
 }
