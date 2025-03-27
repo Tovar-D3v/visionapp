@@ -1,112 +1,16 @@
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
-import { Picker } from "@react-native-picker/picker";
-import DateTimePicker from "@react-native-community/datetimepicker";
+import React from "react";
+import { View, StyleSheet } from "react-native";
+import FormVisita from "../components/FormVisita";
 
 export default function CrearVisitaScreen() {
-  const [vendedor, setVendedor] = useState("");
-  const [viaticos, setViaticos] = useState("");
-  const [nota, setNota] = useState("");
-  const [fecha, setFecha] = useState(new Date());
-  const [cliente, setCliente] = useState("");
-  const [lugar, setLugar] = useState("");
-  const [showDatePicker, setShowDatePicker] = useState(false);
-
-  const handleDateChange = (event, selectedDate) => {
-    const currentDate = selectedDate || fecha;
-    setShowDatePicker(false);
-    setFecha(currentDate);
-  };
-
-  const handleSubmit = () => {
-    console.log({
-      vendedor,
-      viaticos,
-      nota,
-      fecha,
-      cliente,
-      lugar,
-    });
+  const handleFormSubmit = (data) => {
+    console.log("Datos de la visita:", data);
   };
 
   return (
-    //TODO: Meter esto en un componente llamado FormVisita y solo importarlo aquí
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Crear Visita</Text>
-      <Text style={styles.label}>Viáticos</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Ingresar viáticos"
-        value={viaticos}
-        onChangeText={setViaticos}
-        keyboardType="numeric"
-      />
-
-      <Text style={styles.label}>Nota</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Ingresar nota"
-        value={nota}
-        onChangeText={setNota}
-      />
-
-      <Text style={styles.label}>Fecha de la visita</Text>
-      <TouchableOpacity
-        onPress={() => setShowDatePicker(true)}
-        style={styles.dateInput}
-      >
-        <Text>{fecha.toLocaleDateString()}</Text>
-      </TouchableOpacity>
-      {showDatePicker && (
-        <DateTimePicker
-          value={fecha}
-          mode="date"
-          display="default"
-          onChange={handleDateChange}
-        />
-      )}
-
-      <Text style={styles.label}>Cliente</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Ingresar cliente"
-        value={cliente}
-        onChangeText={setCliente}
-      />
-
-      <Text style={styles.label}>Lugar</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Ingresar lugar"
-        value={lugar}
-        onChangeText={setLugar}
-      />
-
-      <Text style={styles.label}>Vendedor</Text>
-       //TODO: Buscar como acomodar el picker
-      <View style={styles.pickerContainer}>
-        <Picker
-          selectedValue={vendedor}
-          style={styles.picker}
-          onValueChange={(itemValue) => setVendedor(itemValue)}
-        >
-          <Picker.Item label="Seleccionar vendedor" value="" />
-          <Picker.Item label="Vendedor 1" value="vendedor1" />
-          <Picker.Item label="Vendedor 2" value="vendedor2" />
-        </Picker>
-      </View>
-
-      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text style={styles.buttonText}>Crear Visita</Text>
-      </TouchableOpacity>
-    </ScrollView>
+    <View style={{ flex: 1 }}>
+      <FormVisita onSubmit={handleFormSubmit} styles={styles} />
+    </View>
   );
 }
 
@@ -153,6 +57,14 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 16,
   },
+  pickerContainer: {
+    borderColor: "#ccc",
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 15,
+    paddingHorizontal: 10,
+  },
   picker: {
-  }
+    height: 40,
+  },
 });
