@@ -1,152 +1,167 @@
 [
     {
         "vendedor": "Juan Pérez",
-        "cliente": "Empresa A",
-        "ciudad": "Madrid",
-        "direccion": "Calle Mayor 1",
+        "cliente": "TechNova",
+        "ciudad": "Bogotá",
+        "direccion": "Calle 26 #85-10",
         "nota": "Reunión para discutir contrato",
         "fecha": "2025-03-25T10:00:00",
         "viaticos": 200000.0,
-        "tipo": "reunión"
+        "tipo": "reunión",
+        "color": "#FFB3BA"
     },
     {
         "vendedor": "Ana Gómez",
-        "cliente": "Empresa B",
-        "ciudad": "Barcelona",
-        "direccion": "Avenida Diagonal 123",
+        "cliente": "InnovaCorp",
+        "ciudad": "Medellín",
+        "direccion": "Carrera 43A #1-50",
         "nota": "Presentación de producto",
         "fecha": "2025-03-26T11:00:00",
         "viaticos": 300000.0,
-        "tipo": "visita"
+        "tipo": "visita",
+        "color": "#FFDFBA"
     },
     {
         "vendedor": "Luis Martínez",
-        "cliente": "Empresa C",
-        "ciudad": "Valencia",
-        "direccion": "Calle Colón 45",
+        "cliente": "EcoSolutions",
+        "ciudad": "Cali",
+        "direccion": "Avenida 6N #23-45",
         "nota": "Negociación de precios",
         "fecha": "2025-03-27T09:30:00",
         "viaticos": 240000.0,
-        "tipo": "reunión"
+        "tipo": "reunión",
+        "color": "#FFFFBA"
     },
     {
         "vendedor": "María López",
-        "cliente": "Empresa D",
-        "ciudad": "Sevilla",
-        "direccion": "Calle Sierpes 10",
+        "cliente": "GreenTech",
+        "ciudad": "Barranquilla",
+        "direccion": "Calle 76 #58-20",
         "nota": "Revisión de contrato",
         "fecha": "2025-03-28T14:00:00",
         "viaticos": 220000.0,
-        "tipo": "reunión"
+        "tipo": "reunión",
+        "color": "#BAFFC9"
     },
     {
         "vendedor": "Carlos Sánchez",
-        "cliente": "Empresa E",
-        "ciudad": "Zaragoza",
-        "direccion": "Calle Alfonso I 22",
+        "cliente": "NextGen",
+        "ciudad": "Cartagena",
+        "direccion": "Carrera 2 #10-65",
         "nota": "Demostración de producto",
         "fecha": "2025-03-29T16:00:00",
         "viaticos": 280000.0,
-        "tipo": "visita"
+        "tipo": "visita",
+        "color": "#BAE1FF"
     },
     {
         "vendedor": "Laura Fernández",
-        "cliente": "Empresa F",
-        "ciudad": "Bilbao",
-        "direccion": "Gran Vía 85",
+        "cliente": "BrightFuture",
+        "ciudad": "Bucaramanga",
+        "direccion": "Carrera 27 #36-45",
         "nota": "Reunión de seguimiento",
         "fecha": "2025-03-30T13:00:00",
         "viaticos": 260000.0,
-        "tipo": "reunión"
+        "tipo": "reunión",
+        "color": "#E2C2FF"
     },
     {
         "vendedor": "Pedro García",
-        "cliente": "Empresa G",
-        "ciudad": "Málaga",
-        "direccion": "Calle Larios 12",
+        "cliente": "VisionaryTech",
+        "ciudad": "Pereira",
+        "direccion": "Avenida Circunvalar #15-30",
         "nota": "Presentación de propuesta",
         "fecha": "2025-03-31T10:30:00",
         "viaticos": 320000.0,
-        "tipo": "visita"
+        "tipo": "visita",
+        "color": "#FFC2E2"
     },
     {
         "vendedor": "Elena Ruiz",
-        "cliente": "Empresa H",
-        "ciudad": "Murcia",
-        "direccion": "Gran Vía 33",
+        "cliente": "SmartIdeas",
+        "ciudad": "Manizales",
+        "direccion": "Carrera 23 #45-67",
         "nota": "Revisión de proyecto",
         "fecha": "2025-04-01T11:30:00",
         "viaticos": 200000.0,
-        "tipo": "reunión"
+        "tipo": "reunión",
+        "color": "#C2F0C2"
     },
     {
         "vendedor": "Javier Torres",
-        "cliente": "Empresa I",
-        "ciudad": "Valladolid",
-        "direccion": "Calle Santiago 5",
+        "cliente": "FutureWorks",
+        "ciudad": "Santa Marta",
+        "direccion": "Carrera 1 #22-30",
         "nota": "Negociación de contrato",
         "fecha": "2025-04-02T15:00:00",
         "viaticos": 220000.0,
-        "tipo": "reunión"
+        "tipo": "reunión",
+        "color": "#F0C2C2"
     },
     {
         "vendedor": "Isabel Romero",
-        "cliente": "Empresa J",
-        "ciudad": "Córdoba",
-        "direccion": "Calle Cruz Conde 18",
+        "cliente": "PrimeSolutions",
+        "ciudad": "Ibagué",
+        "direccion": "Carrera 5 #12-34",
         "nota": "Reunión inicial",
         "fecha": "2025-04-03T09:00:00",
         "viaticos": 240000.0,
-        "tipo": "reunión"
+        "tipo": "reunión",
+        "color": "#C2D1F0"
     },
     {
         "vendedor": "Miguel Hernández",
-        "cliente": "Empresa K",
-        "ciudad": "Alicante",
-        "direccion": "Avenida Maisonnave 10",
+        "cliente": "AlphaTech",
+        "ciudad": "Cúcuta",
+        "direccion": "Avenida Libertadores #10-20",
         "nota": "Presentación de servicios",
         "fecha": "2025-04-04T10:00:00",
         "viaticos": 280000.0,
-        "tipo": "visita"
+        "tipo": "visita",
+        "color": "#F0E2C2"
     },
     {
         "vendedor": "Patricia Morales",
-        "cliente": "Empresa L",
-        "ciudad": "Granada",
-        "direccion": "Calle Recogidas 25",
+        "cliente": "CoreInnovations",
+        "ciudad": "Villavicencio",
+        "direccion": "Carrera 40 #20-15",
         "nota": "Revisión de contrato",
         "fecha": "2025-04-05T11:00:00",
         "viaticos": 260000.0,
-        "tipo": "reunión"
+        "tipo": "reunión",
+        "color": "#D1C2F0"
     },
     {
         "vendedor": "Fernando Díaz",
-        "cliente": "Empresa M",
-        "ciudad": "Oviedo",
-        "direccion": "Calle Uría 15",
+        "cliente": "PioneerGroup",
+        "ciudad": "Pasto",
+        "direccion": "Calle 17 #25-40",
         "nota": "Negociación de precios",
         "fecha": "2025-04-06T12:00:00",
         "viaticos": 300000.0,
-        "tipo": "reunión"
+        "tipo": "reunión",
+        "color": "#C2F0E2"
     },
     {
         "vendedor": "Sara Jiménez",
-        "cliente": "Empresa N",
-        "ciudad": "Santander",
-        "direccion": "Paseo Pereda 8",
+        "cliente": "BrightPath",
+        "ciudad": "Montería",
+        "direccion": "Carrera 1 #10-50",
         "nota": "Reunión de seguimiento",
         "fecha": "2025-04-07T13:00:00",
         "viaticos": 240000.0,
-        "tipo": "reunión"
+        "tipo": "reunión",
+        "color": "#F0C2E2"
     },
     {
         "vendedor": "David Castillo",
-        "cliente": "Empresa O",
-        "ciudad": "Pamplona",
-        "direccion": "Calle Estafeta 3",
+        "cliente": "InnovateNow",
+        "ciudad": "Neiva",
+        "direccion": "Carrera 7 #15-25",
         "nota": "Presentación de producto",
         "fecha": "2025-04-08T14:00:00",
         "viaticos": 320000.0,
-        "tipo": "visita"
+        "tipo": "visita",
+        "color": "#C2E2F0"
     }
 ]

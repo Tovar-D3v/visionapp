@@ -27,7 +27,7 @@ export default function ClientesScreen() {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <View style={styles.container}>
       <View style={styles.heading}>
         <View style={styles.searchContainer}>
           <Ionicons name="search" size={20} color="#ccc" style={styles.searchIcon} />
@@ -49,9 +49,8 @@ export default function ClientesScreen() {
 
       
 
-      {/* ✅ Se usa el componente modularizado */}
       <ListClientes clientes={filteredClientes} />
-    </ScrollView>
+    </View>
   );
 }
 

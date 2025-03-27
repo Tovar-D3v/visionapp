@@ -1,28 +1,25 @@
 import React from "react";
 import { TouchableOpacity, View, Text } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
+import FormattedTime from "../utils/formatearFecha";
 
 const CardVisita = ({ item, navigation, styles, getIconName, formatearDinero }) => {
-  const date = new Date(item.fecha);
-  const day = date.getDate();
-  const month = date.toLocaleString("default", { month: "short" });
-  const time = date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-
+  console.log("item:", item);
   return (
     <TouchableOpacity onPress={() => navigation.navigate("DetalleVisita", { visita: item })}>
       <View style={styles.itemContainer}>
-        <View style={styles.dateContainer}>
-          <Text style={styles.day}>{day}</Text>
-          <Text style={styles.month}>{month}</Text>
-          <Text style={styles.time}>{time}</Text>
-        </View>
+        <FormattedTime date={item.fecha} styles={styles} />
         <View style={styles.infoContainer}>
           <Text style={styles.cliente}>{item.cliente}</Text>
           <Text style={styles.nota}>{item.nota}</Text>
           <Text style={styles.vendedor}>{item.vendedor}</Text>
           <View style={{ flexDirection: "row", alignItems: "center", gap: 8, marginTop: 5 }}>
             <Ionicons name={getIconName(item.tipo)} size={20} color="#000" style={styles.icon} />
-            <Text>${formatearDinero(item.viaticos)}</Text>
+            <Text style={{backgroundColor: "#FFB3BA", paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10, display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 5}}>${formatearDinero(item.viaticos)}</Text>
+            <View style={{backgroundColor: "#e6d5ff", paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10, display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 5}}> 
+              <MaterialCommunityIcons name="office-building-marker-outline" size={13} color="#000" />
+              <Text>{item.ciudad}</Text>
+            </View>
           </View>
         </View>
         <View style={{ justifyContent: "center" }}>

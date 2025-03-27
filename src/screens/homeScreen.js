@@ -31,7 +31,7 @@ const cardData = [
 
 export default function HomeScreen() {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <View style={styles.container}>
       <View style={styles.heading}>
         <Text style={styles.title}>Bienvenido al Inicio, Wilfred</Text>
         <Image source={require("../../assets/images/user-admin.jpeg")} style={styles.profileImage} />
@@ -43,7 +43,7 @@ export default function HomeScreen() {
           <CardHome key={index} {...card} />
         ))}
       </View>
-    </ScrollView>
+    </View>
   );
 }
 

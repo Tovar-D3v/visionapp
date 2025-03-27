@@ -1,10 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView} from "react-native";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
 
 export default function ListClientes({ clientes }) {
   return (
-    <View style={styles.list}>
+    <ScrollView style={styles.list}>
       {clientes.map((cliente, index) => (
         <View key={index} style={styles.card}>
           <View style={[styles.iconContainer, { backgroundColor: cliente.color }]}>
@@ -24,14 +24,18 @@ export default function ListClientes({ clientes }) {
           </View>
         </View>
       ))}
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   list: {
-    width: "90%",
+    width: "100%",
     marginBottom: 100,
+    backgroundColor: "#fff",
+    paddingTop: 5,
+    paddingHorizontal: 20,
+    height: "77%",
   },
   card: {
     flexDirection: "row",

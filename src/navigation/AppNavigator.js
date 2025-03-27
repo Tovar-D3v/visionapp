@@ -15,24 +15,24 @@ export default function AppNavigator() {
         <Tab.Navigator
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ color, size }) => {
-                    let iconName;
+                    let icono;
 
                     if (route.name === 'Inicio') {
-                        iconName = 'home';
-                        return <AntDesign name={iconName} size={size} color={color} />;
+                        icono = 'home';
+                        return <AntDesign name={icono} size={size} color={color} />;
                     } else if (route.name === 'Ajustes') {
-                        iconName = 'settings-outline';
-                        return <Ionicons name={iconName} size={size} color={color} />;
+                        icono = 'settings-outline';
+                        return <Ionicons name={icono} size={size} color={color} />;
                     } else if (route.name === 'Explorar') {
-                        iconName = 'explore';
+                        icono = 'explore';
                     } else if (route.name === 'Crear') {
-                        iconName = 'earth-outline';
-                        return <Ionicons name={iconName} size={size} color={color} />;
+                        icono = 'earth-outline';
+                        return <Ionicons name={icono} size={size} color={color} />;
                     } else if (route.name === 'Clientes') {
-                        iconName = 'group';
+                        icono = 'group';
                     }
 
-                    return <MaterialIcons name={iconName} size={size} color={color} />;
+                    return <MaterialIcons name={icono} size={size} color={color} />;
                 },
                 tabBarActiveTintColor: '#fff',
                 tabBarInactiveTintColor: '#8e8e93',
