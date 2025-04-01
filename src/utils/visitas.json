@@ -1,0 +1,167 @@
+[
+    {
+        "vendedor": "Juan Pérez",
+        "cliente": "TechNova",
+        "ciudad": "Bogotá",
+        "direccion": "Calle 26 #85-10",
+        "nota": "Reunión para discutir contrato",
+        "fecha": "2025-03-25T10:00:00",
+        "viaticos": 200000.0,
+        "tipo": "reunión",
+        "color": "#FFB3BA"
+    },
+    {
+        "vendedor": "Ana Gómez",
+        "cliente": "InnovaCorp",
+        "ciudad": "Medellín",
+        "direccion": "Carrera 43A #1-50",
+        "nota": "Presentación de producto",
+        "fecha": "2025-03-26T11:00:00",
+        "viaticos": 300000.0,
+        "tipo": "visita",
+        "color": "#FFDFBA"
+    },
+    {
+        "vendedor": "Luis Martínez",
+        "cliente": "EcoSolutions",
+        "ciudad": "Cali",
+        "direccion": "Avenida 6N #23-45",
+        "nota": "Negociación de precios",
+        "fecha": "2025-03-27T09:30:00",
+        "viaticos": 240000.0,
+        "tipo": "reunión",
+        "color": "#FFFFBA"
+    },
+    {
+        "vendedor": "María López",
+        "cliente": "GreenTech",
+        "ciudad": "Barranquilla",
+        "direccion": "Calle 76 #58-20",
+        "nota": "Revisión de contrato",
+        "fecha": "2025-03-28T14:00:00",
+        "viaticos": 220000.0,
+        "tipo": "reunión",
+        "color": "#BAFFC9"
+    },
+    {
+        "vendedor": "Carlos Sánchez",
+        "cliente": "NextGen",
+        "ciudad": "Cartagena",
+        "direccion": "Carrera 2 #10-65",
+        "nota": "Demostración de producto",
+        "fecha": "2025-03-29T16:00:00",
+        "viaticos": 280000.0,
+        "tipo": "visita",
+        "color": "#BAE1FF"
+    },
+    {
+        "vendedor": "Laura Fernández",
+        "cliente": "BrightFuture",
+        "ciudad": "Bucaramanga",
+        "direccion": "Carrera 27 #36-45",
+        "nota": "Reunión de seguimiento",
+        "fecha": "2025-03-30T13:00:00",
+        "viaticos": 260000.0,
+        "tipo": "reunión",
+        "color": "#E2C2FF"
+    },
+    {
+        "vendedor": "Pedro García",
+        "cliente": "VisionaryTech",
+        "ciudad": "Pereira",
+        "direccion": "Avenida Circunvalar #15-30",
+        "nota": "Presentación de propuesta",
+        "fecha": "2025-03-31T10:30:00",
+        "viaticos": 320000.0,
+        "tipo": "visita",
+        "color": "#FFC2E2"
+    },
+    {
+        "vendedor": "Elena Ruiz",
+        "cliente": "SmartIdeas",
+        "ciudad": "Manizales",
+        "direccion": "Carrera 23 #45-67",
+        "nota": "Revisión de proyecto",
+        "fecha": "2025-04-01T11:30:00",
+        "viaticos": 200000.0,
+        "tipo": "reunión",
+        "color": "#C2F0C2"
+    },
+    {
+        "vendedor": "Javier Torres",
+        "cliente": "FutureWorks",
+        "ciudad": "Santa Marta",
+        "direccion": "Carrera 1 #22-30",
+        "nota": "Negociación de contrato",
+        "fecha": "2025-04-02T15:00:00",
+        "viaticos": 220000.0,
+        "tipo": "reunión",
+        "color": "#F0C2C2"
+    },
+    {
+        "vendedor": "Isabel Romero",
+        "cliente": "PrimeSolutions",
+        "ciudad": "Ibagué",
+        "direccion": "Carrera 5 #12-34",
+        "nota": "Reunión inicial",
+        "fecha": "2025-04-03T09:00:00",
+        "viaticos": 240000.0,
+        "tipo": "reunión",
+        "color": "#C2D1F0"
+    },
+    {
+        "vendedor": "Miguel Hernández",
+        "cliente": "AlphaTech",
+        "ciudad": "Cúcuta",
+        "direccion": "Avenida Libertadores #10-20",
+        "nota": "Presentación de servicios",
+        "fecha": "2025-04-04T10:00:00",
+        "viaticos": 280000.0,
+        "tipo": "visita",
+        "color": "#F0E2C2"
+    },
+    {
+        "vendedor": "Patricia Morales",
+        "cliente": "CoreInnovations",
+        "ciudad": "Villavicencio",
+        "direccion": "Carrera 40 #20-15",
+        "nota": "Revisión de contrato",
+        "fecha": "2025-04-05T11:00:00",
+        "viaticos": 260000.0,
+        "tipo": "reunión",
+        "color": "#D1C2F0"
+    },
+    {
+        "vendedor": "Fernando Díaz",
+        "cliente": "PioneerGroup",
+        "ciudad": "Pasto",
+        "direccion": "Calle 17 #25-40",
+        "nota": "Negociación de precios",
+        "fecha": "2025-04-06T12:00:00",
+        "viaticos": 300000.0,
+        "tipo": "reunión",
+        "color": "#C2F0E2"
+    },
+    {
+        "vendedor": "Sara Jiménez",
+        "cliente": "BrightPath",
+        "ciudad": "Montería",
+        "direccion": "Carrera 1 #10-50",
+        "nota": "Reunión de seguimiento",
+        "fecha": "2025-04-07T13:00:00",
+        "viaticos": 240000.0,
+        "tipo": "reunión",
+        "color": "#F0C2E2"
+    },
+    {
+        "vendedor": "David Castillo",
+        "cliente": "InnovateNow",
+        "ciudad": "Neiva",
+        "direccion": "Carrera 7 #15-25",
+        "nota": "Presentación de producto",
+        "fecha": "2025-04-08T14:00:00",
+        "viaticos": 320000.0,
+        "tipo": "visita",
+        "color": "#C2E2F0"
+    }
+]
