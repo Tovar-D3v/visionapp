@@ -1,113 +1,48 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, Image, ScrollView } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 const DetalleVisita = ({ visita }) => {
   return (
-    <View style={styles.container}>
-      <Text style={{ fontSize: 35, fontWeight: "bold", marginBottom: 10 }}>
-        {visita.cliente}
-      </Text>
-      <Image
-        source={{ uri: "https://picsum.photos/400/150" }}
-        style={styles.image}
-      />
-      <View>
-        <Text
-          style={{
-            paddingHorizontal: 14,
-            paddingVertical: 5,
-            fontSize: 15,
-            fontWeight: "500",
-          }}
-        >
-          Nota:
-        </Text>
-        <Text style={styles.input}>{visita.nota}</Text>
+    <ScrollView className="flex-1 bg-white">
+      <View className="p-4">
+        <Image
+          source={{ uri: "https://picsum.photos/400/150" }}
+          className="w-full h-40 rounded-lg mb-4 self-center"
+        />
+        
+        <View className="mb-6">
+          <Text className="text-lg font-semibold text-gray-500 mb-2">Cliente</Text>
+          <Text className="text-xl">{visita.cliente}</Text>
+        </View>
+
+        <View className="mb-6">
+          <Text className="text-lg font-semibold text-gray-500 mb-2">Nota</Text>
+          <Text className="text-xl">{visita.nota}</Text>
+        </View>
+
+        <View className="mb-6">
+          <Text className="text-lg font-semibold text-gray-500 mb-2">Vendedor</Text>
+          <Text className="text-xl">{visita.vendedor}</Text>
+        </View>
+
+        <View className="mb-6">
+          <Text className="text-lg font-semibold text-gray-500 mb-2">Fecha</Text>
+          <Text className="text-xl">{visita.fecha}</Text>
+        </View>
+
+        <View className="mb-6">
+          <Text className="text-lg font-semibold text-gray-500 mb-2">Tipo</Text>
+          <Text className="text-xl">{visita.tipo}</Text>
+        </View>
+
+        <View className="mb-6">
+          <Text className="text-lg font-semibold text-gray-500 mb-2">Viáticos</Text>
+          <Text className="text-xl">{visita.viaticos}</Text>
+        </View>
       </View>
-      <View>
-        <Text
-          style={{
-            paddingHorizontal: 14,
-            paddingVertical: 5,
-            fontSize: 15,
-            fontWeight: "500",
-          }}
-        >
-          Vendedor
-        </Text>
-        <Text style={styles.input}>{visita.vendedor}</Text>
-      </View>
-      <View>
-        <Text
-          style={{
-            paddingHorizontal: 14,
-            paddingVertical: 5,
-            fontSize: 15,
-            fontWeight: "500",
-          }}
-        >
-          Fecha
-        </Text>
-        <Text style={styles.input}>{visita.fecha}</Text>
-      </View>
-      <View>
-        <Text
-          style={{
-            paddingHorizontal: 14,
-            paddingVertical: 5,
-            fontSize: 15,
-            fontWeight: "500",
-          }}
-        >
-          Tipo
-        </Text>
-        <Text style={styles.input}>{visita.tipo}</Text>
-      </View>
-      <View>
-        <Text
-          style={{
-            paddingHorizontal: 14,
-            paddingVertical: 5,
-            fontSize: 15,
-            fontWeight: "500",
-          }}
-        >
-          Viaticos
-        </Text>
-        <Text style={styles.input}>{visita.viaticos}</Text>
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 
 export default DetalleVisita;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: "#fff",
-  },
-  image: {
-    width: 360,
-    height: 150,
-    borderRadius: 10,
-    marginBottom: 16,
-    alignSelf: "center",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 16,
-  },
-  input: {
-    height: 45,
-    borderColor: "#ccc",
-    borderRadius: 100,
-    marginBottom: 15,
-    paddingHorizontal: 10,
-    backgroundColor: "#f9f9f9",
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-  },
-});
