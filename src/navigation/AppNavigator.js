@@ -6,7 +6,7 @@ import HomeScreen from '../screens/homeScreen';
 import ClientesScreen from '../screens/ClientesScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import CrearVisitaScreen from '../screens/CrearVisitaScreen';
-import VisitasStackNavigator from './stack/VisitasStackNavigator';
+import VisitasStackNavigator from '../components/VisitasStackNavigator';
 
 const Tab = createBottomTabNavigator();
 

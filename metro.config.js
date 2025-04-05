@@ -6,6 +6,6 @@ module.exports = {
   ...config,
   resolver: {
     ...config.resolver,
-    sourceExts: [...config.resolver.sourceExts, 'jsx', 'js', 'ts', 'tsx'],
-  },
+    sourceExts: [...config.resolver.sourceExts, 'css']
+  }
 };

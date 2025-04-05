@@ -2,8 +2,8 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { MaterialIcons } from '@expo/vector-icons';
 
-import VisitasScreen from '../../screens/VisitasScreen';
-import DetalleVisitaScreen from '../../screens/VisitasScreens/DetalleVisitaScreen';
+import VisitasScreen from '../screens/VisitasScreen';
+import DetalleVisitaScreen from '../screens/VisitasScreens/DetalleVisitaScreen';
 
 const Stack = createStackNavigator();
 
