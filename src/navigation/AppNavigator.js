@@ -1,72 +1,104 @@
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons, MaterialIcons, AntDesign } from '@expo/vector-icons';
+import { FIREBASE_AUTH } from '../Firebaseconfig';
+import { onAuthStateChanged } from 'firebase/auth';
 
-import HomeScreen from '../screens/homeScreen';
-import ClientesScreen from '../screens/ClientesScreen';
-import SettingsScreen from '../screens/SettingsScreen';
-import CrearVisitaScreen from '../screens/CrearVisitaScreen';
-import VisitasStackNavigator from '../components/VisitasStackNavigator';
+import HomeScreen from '../screens/HomeScreen';
+import VisitHistoryScreen from '../screens/VisitHistoryScreen';
+import ProfileScreen from '../screens/ProfileScreen';
+import VisitDetailsScreen from '../screens/VisitDetailsScreen';
+import LoginScreen from '../screens/LoginScreen';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
-export default function AppNavigator() {
+function TabNavigator() {
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ color, size }) => {
-                    let icono;
+                    let iconName;
+                    let IconComponent;
 
                     if (route.name === 'Inicio') {
-                        icono = 'home';
-                        return <AntDesign name={icono} size={size} color={color} />;
-                    } else if (route.name === 'Ajustes') {
-                        icono = 'settings-outline';
-                        return <Ionicons name={icono} size={size} color={color} />;
-                    } else if (route.name === 'Explorar') {
-                        icono = 'explore';
-                    } else if (route.name === 'Crear') {
-                        icono = 'earth-outline';
-                        return <Ionicons name={icono} size={size} color={color} />;
-                    } else if (route.name === 'Clientes') {
-                        icono = 'group';
+                        iconName = 'home';
+                        IconComponent = AntDesign;
+                    } else if (route.name === 'Historial') {
+                        iconName = 'history';
+                        IconComponent = MaterialIcons;
+                    } else if (route.name === 'Perfil') {
+                        iconName = 'person';
+                        IconComponent = MaterialIcons;
                     }
 
-                    return <MaterialIcons name={icono} size={size} color={color} />;
+                    return <IconComponent name={iconName} size={size} color={color} />;
                 },
                 tabBarActiveTintColor: '#fff',
                 tabBarInactiveTintColor: '#8e8e93',
                 headerShown: false,
                 tabBarStyle: {
-                    position: 'absolute',
-                    bottom: 32,
-                    left: 20,
-                    right: 20,
-                    elevation: 0,
-                    backgroundColor: '#000',
-                    borderRadius: 20,
-                    height: 62,
-                    width: '95%',
-                    paddingTop: 5,
-                    shadowColor: '#000',
-                    shadowOpacity: 0.06,
-                    shadowOffset: {
-                        width: 10,
-                        height: 10,
-                    },
-                    alignSelf: 'center',
-                    marginHorizontal: '2.5%',
+                    className: 'absolute bottom-8 left-5 right-5 bg-black rounded-full h-16 w-full pt-1.5 shadow-lg'
                 },
                 tabBarItemStyle: {
-                    justifyContent: 'center',
+                    className: 'justify-center'
                 },
             })}
         >
-            <Tab.Screen name="Inicio" component={HomeScreen} />
-            <Tab.Screen name="Clientes" component={ClientesScreen} />
-            <Tab.Screen name="Crear" component={CrearVisitaScreen} />
-            <Tab.Screen name="Explorar" component={VisitasStackNavigator} />
-            <Tab.Screen name="Ajustes" component={SettingsScreen} />
+            <Tab.Screen 
+                name="Inicio" 
+                component={HomeScreen} 
+                options={{
+                    title: 'Próximas Visitas'
+                }}
+            />
+            <Tab.Screen 
+                name="Historial" 
+                component={VisitHistoryScreen} 
+            />
+            <Tab.Screen 
+                name="Perfil" 
+                component={ProfileScreen} 
+            />
         </Tab.Navigator>
+    );
+}
+
+function AuthNavigator() {
+    return (
+        <Stack.Navigator
+            screenOptions={{
+                headerShown: false,
+            }}
+        >
+            <Stack.Screen name="Login" component={LoginScreen} />
+        </Stack.Navigator>
+    );
+}
+
+export default function AppNavigator() {
+    const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+
+    React.useEffect(() => {
+        const unsubscribe = onAuthStateChanged(FIREBASE_AUTH, (user) => {
+            setIsAuthenticated(!!user);
+        });
+
+        return unsubscribe;
+    }, []);
+
+    return (
+        <Stack.Navigator
+            screenOptions={{
+                headerShown: false,
+            }}
+        >
+            {isAuthenticated ? (
+                <Stack.Screen name="App" component={TabNavigator} />
+            ) : (
+                <Stack.Screen name="Auth" component={AuthNavigator} />
+            )}
+        </Stack.Navigator>
     );
 }
