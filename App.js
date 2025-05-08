@@ -1,20 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import * as SplashScreen from "expo-splash-screen";
+import { useCallback } from "react";
+import { AuthProvider, useAuth } from "./src/context/AuthProvider";
 
-export default function App() {
+import WelcomeScreen from "./src/screens/WelcomeScreen";
+import AppNavigator from "./src/navigation/AppNavigator";
+import LoginScreen from "./src/screens/LoginScreen";
+
+SplashScreen.preventAutoHideAsync();
+
+const Stack = createNativeStackNavigator();
+
+function RootNavigator() {
+  const { user } = useAuth();
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      {user ? (
+        <Stack.Screen name="Main" component={AppNavigator} />
+      ) : (
+        <Stack.Screen name="autenticacion" component={LoginScreen} />
+      )}
+      <Stack.Screen name="Bienvenido" component={WelcomeScreen} />
+    </Stack.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  const onLayoutRootView = useCallback(async () => {
+    await SplashScreen.hideAsync();
+  }, []);
+
+  return (
+    <AuthProvider>
+      <NavigationContainer onReady={onLayoutRootView}>
+        <RootNavigator />
+      </NavigationContainer>
+    </AuthProvider>
+  );
+}

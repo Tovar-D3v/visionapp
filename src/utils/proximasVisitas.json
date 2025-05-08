@@ -1,0 +1,35 @@
+[
+    {
+        "vendedor": "Juan Pérez",
+        "cliente": "TechNova",
+        "ciudad": "Bogotá",
+        "direccion": "Calle 26 #85-10",
+        "nota": "Reunión para discutir contrato",
+        "fecha": "2025-03-25T10:00:00",
+        "viaticos": 200000.0,
+        "tipo": "reunión",
+        "color": "#FFB3BA"
+    },
+    {
+        "vendedor": "Ana Gómez",
+        "cliente": "InnovaCorp",
+        "ciudad": "Medellín",
+        "direccion": "Carrera 43A #1-50",
+        "nota": "Presentación de producto",
+        "fecha": "2025-03-26T11:00:00",
+        "viaticos": 300000.0,
+        "tipo": "visita",
+        "color": "#FFDFBA"
+    },
+    {
+        "vendedor": "Luis Martínez",
+        "cliente": "EcoSolutions",
+        "ciudad": "Cali",
+        "direccion": "Avenida 6N #23-45",
+        "nota": "Negociación de precios",
+        "fecha": "2025-03-27T09:30:00",
+        "viaticos": 240000.0,
+        "tipo": "reunión",
+        "color": "#FFFFBA"
+    }
+]
