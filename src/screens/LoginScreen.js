@@ -22,8 +22,8 @@ const LoginScreen = ({ navigation }) => {
     }
   }, [user]);
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("leon");
+  const [password, setPassword] = useState("Indelp@2023");
 
   const handleLogin = async () => {
     if (!username.trim() || !password.trim()) {

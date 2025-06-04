@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View, Text } from "react-native";
 import visitas from "../utils/visitas.json";
 import { formatearDinero } from "../utils/formatearDinero";
 import config from "../config/config";

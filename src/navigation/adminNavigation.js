@@ -19,7 +19,7 @@ import VisitasStackNavigator from "./stack/VisitasStackNavigator";
 
 const Tab = createBottomTabNavigator();
 
-export default function AppNavigator() {
+export default function AdminNavigation() {
   return (
     <ClientesProvider>
       <VisitasProvider>
