@@ -1,5 +1,5 @@
 const config = {
-    API_CHRONOS_CRM: "http://192.168.0.221:8000",
+    API_CHRONOS_CRM: "https://panda-equipped-gradually.ngrok-free.app/backend/",
     API_NEGOCIOS: "http://192.168.0.33:8144",
     API_USUARIOS: "http://192.168.0.33:8176",
     API_CLIENTES: "https://panda-equipped-gradually.ngrok-free.app/clientes/",

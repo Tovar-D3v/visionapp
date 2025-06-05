@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const loadUser = async () => {
-    // Implementar lógica para cargar el usuario si es necesario
+    // 
   };
 
   useEffect(() => {

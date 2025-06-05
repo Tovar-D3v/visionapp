@@ -8,8 +8,16 @@ import {
   Alert,
 } from "react-native";
 import { useVisitas } from "../context/VisitasProvider";
+import { useAuth } from "../context/AuthProvider";
+import config from "../config/config";
+
+import * as Notifications from "expo-notifications";
+import * as Device from "expo-device";
 
 export default function FormVisita() {
+  const { crearVisita } = useVisitas();
+  const { user } = useAuth();
+
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [viaticos, setViaticos] = useState("");
@@ -17,25 +25,165 @@ export default function FormVisita() {
   const [cliente, setCliente] = useState("");
   const [vendedor, setVendedor] = useState("");
 
-  const { crearVisita } = useVisitas();
+
+  const sendPushNotification = async (expoPushToken, title, body) => {
+    console.log(
+      "[FormVisita] -> sendPushNotification: Enviando a",
+      expoPushToken
+    );
+    try {
+      const message = {
+        to: expoPushToken,
+        sound: "default",
+        title: title,
+        body: body,
+      };
+      const response = await fetch(
+        "https://exp.host/--/api/v2/push/send",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Accept-encoding": "gzip, deflate",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(message),
+        }
+      );
+      const data = await response.json();
+      console.log(
+        "[FormVisita] -> sendPushNotification: Respuesta Expo",
+        data
+      );
+    } catch (error) {
+      console.error(
+        "[FormVisita] -> sendPushNotification: Error enviando push a",
+        expoPushToken,
+        error
+      );
+    }
+  };
+
+  const notifyAllExceptCreator = async (creatorId) => {
+    const url = `${config.API_CHRONOS_CRM}/api/user/user-informacion/`;
+    console.log(
+      "[FormVisita] -> notifyAllExceptCreator: Iniciando GET a",
+      url
+    );
+
+    try {
+      const resp = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
+
+      console.log(
+        "[FormVisita] -> notifyAllExceptCreator: Código de respuesta",
+        resp.status
+      );
+
+      if (!resp.ok) {
+        const detalle = await resp.json();
+        console.warn(
+          "[FormVisita] -> notifyAllExceptCreator: No se pudo obtener usuarios:",
+          resp.status,
+          detalle
+        );
+        return;
+      }
+
+      const json = await resp.json();
+      const listaUsuarios = json.usuarios_informacion || [];
+      console.log(
+        "[FormVisita] -> notifyAllExceptCreator: Usuarios obtenidos",
+        listaUsuarios
+      );
+
+      const tokensAEnviar = listaUsuarios
+        .filter(
+          (u) =>
+            u.token_telefono &&
+            u.token_telefono.startsWith("ExponentPushToken") &&
+            u.id !== creatorId
+        )
+        .map((u) => u.token_telefono);
+
+      console.log(
+        "[FormVisita] -> notifyAllExceptCreator: Tokens a notificar",
+        tokensAEnviar
+      );
+
+      const notificationTitle = `Nueva visita: ${titulo}`;
+      const notificationBody = `Visita para cliente "${cliente}" en ${fecha}.`;
+
+      await Promise.all(
+        tokensAEnviar.map((expoToken) =>
+          sendPushNotification(expoToken, notificationTitle, notificationBody)
+        )
+      );
+    } catch (error) {
+      console.error(
+        "[FormVisita] -> notifyAllExceptCreator: Error general obteniendo usuarios",
+        error
+      );
+    }
+  };
 
   const handleSubmit = async () => {
-    try {
-      const data = {
-        titulo,
-        descripcion,
-        viaticos,
-        fecha_visita: fecha,
-        creador_visita_id: 1,
-        cliente_id: 20,
-        nombre_cliente: cliente,
-        nombre_vendedor: vendedor,
-      };
+    if (!user) {
+      Alert.alert("Debes iniciar sesión para crear una visita.");
+      return;
+    }
 
-      await crearVisita(data);
+    const data = {
+      titulo,
+      descripcion,
+      viaticos,
+      fecha_visita: fecha,
+      creador_visita_id: user.id,
+      cliente_id: 20,
+      nombre_cliente: cliente,
+      nombre_vendedor: vendedor,
+    };
+
+    try {
+      console.log(
+        data
+      );
+      const nuevaVisita = await crearVisita(data);
+      console.log(
+        nuevaVisita
+      );
       Alert.alert("Éxito", "La visita fue creada correctamente.");
+      await notifyAllExceptCreator(user.id);
+
+      setTitulo("");
+      setDescripcion("");
+      setViaticos("");
+      setFecha(new Date().toISOString().split("T")[0]);
+      setCliente("");
+      setVendedor("");
     } catch (error) {
-      console.log(error);
+      if (error.response) {
+        console.log(
+          "error:",
+          error.response.status
+        );
+        console.log(
+          "error",
+          error.response.data
+        );
+        Alert.alert(
+          "Error al crear visita",
+          `Servidor respondió: ${JSON.stringify(error.response.data)}`
+        );
+      } else {
+        console.log("[FormVisita] -> handleSubmit: Error:", error.message);
+        Alert.alert("Error", "Error al comunicarse con el servidor.");
+      }
     }
   };
 
@@ -46,8 +194,6 @@ export default function FormVisita() {
           width: "100%",
           alignItems: "flex-start",
           paddingHorizontal: 6,
-          flexDirection: "col",
-          display: "flex",
           gap: 8,
         }}
       >
@@ -82,7 +228,7 @@ export default function FormVisita() {
 
         <TextInput
           style={styles.input}
-          placeholder="Fecha de la visita"
+          placeholder="Fecha de la visita (YYYY-MM-DD)"
           value={fecha}
           onChangeText={setFecha}
         />
@@ -105,7 +251,6 @@ export default function FormVisita() {
           style={{
             marginTop: 20,
             width: "100%",
-            display: "flex",
             flexDirection: "row",
             justifyContent: "flex-end",
           }}
@@ -131,18 +276,13 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "bold",
   },
-  label: {
-    fontSize: 16,
-    marginBottom: 5,
-  },
   input: {
     height: 45,
     borderColor: "#ccc",
     borderRadius: 100,
     marginBottom: 15,
-    paddingHorizontal: 10,
-    backgroundColor: "#f9f9f9",
     paddingHorizontal: 20,
+    backgroundColor: "#f9f9f9",
   },
   button: {
     backgroundColor: "#007BFF",
@@ -154,5 +294,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#fff",
     fontSize: 17,
+    textAlign: "center",
   },
 });
