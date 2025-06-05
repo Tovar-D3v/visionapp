@@ -28,7 +28,6 @@ export default function FormVisita() {
 
   const sendPushNotification = async (expoPushToken, title, body) => {
     console.log(
-      "[FormVisita] -> sendPushNotification: Enviando a",
       expoPushToken
     );
     try {
@@ -67,7 +66,6 @@ export default function FormVisita() {
   const notifyAllExceptCreator = async (creatorId) => {
     const url = `${config.API_CHRONOS_CRM}/api/user/user-informacion/`;
     console.log(
-      "[FormVisita] -> notifyAllExceptCreator: Iniciando GET a",
       url
     );
 
@@ -81,14 +79,12 @@ export default function FormVisita() {
       });
 
       console.log(
-        "[FormVisita] -> notifyAllExceptCreator: Código de respuesta",
         resp.status
       );
 
       if (!resp.ok) {
         const detalle = await resp.json();
         console.warn(
-          "[FormVisita] -> notifyAllExceptCreator: No se pudo obtener usuarios:",
           resp.status,
           detalle
         );
@@ -98,7 +94,6 @@ export default function FormVisita() {
       const json = await resp.json();
       const listaUsuarios = json.usuarios_informacion || [];
       console.log(
-        "[FormVisita] -> notifyAllExceptCreator: Usuarios obtenidos",
         listaUsuarios
       );
 
@@ -112,7 +107,6 @@ export default function FormVisita() {
         .map((u) => u.token_telefono);
 
       console.log(
-        "[FormVisita] -> notifyAllExceptCreator: Tokens a notificar",
         tokensAEnviar
       );
 
@@ -126,7 +120,6 @@ export default function FormVisita() {
       );
     } catch (error) {
       console.error(
-        "[FormVisita] -> notifyAllExceptCreator: Error general obteniendo usuarios",
         error
       );
     }
@@ -150,9 +143,8 @@ export default function FormVisita() {
     };
 
     try {
-      console.log(
-        data
-      );
+      console.log("data:", data);
+
       const nuevaVisita = await crearVisita(data);
       console.log(
         nuevaVisita
@@ -181,7 +173,6 @@ export default function FormVisita() {
           `Servidor respondió: ${JSON.stringify(error.response.data)}`
         );
       } else {
-        console.log("[FormVisita] -> handleSubmit: Error:", error.message);
         Alert.alert("Error", "Error al comunicarse con el servidor.");
       }
     }

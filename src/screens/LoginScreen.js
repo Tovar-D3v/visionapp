@@ -125,10 +125,6 @@ export default LoginScreen;
 
 async function registerForPushNotificationsAsync() {
   if (!Device.isDevice) {
-    Alert.alert(
-      "Error",
-      "Debes usar un dispositivo físico para recibir notificaciones"
-    );
     return null;
   }
 

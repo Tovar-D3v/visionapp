@@ -46,7 +46,7 @@ const cardData = [
 
 export default function HomeScreen() {
   const { visitas } = useVisitas();
-  const { user } = useAuth();
+  const { user, isAdmin } = useAuth();
 
   const getIconName = (tipo) => {
     switch (tipo) {
@@ -78,7 +78,7 @@ export default function HomeScreen() {
           }}
         >
           <Text style={styles.title}>Hola, {user?.username} </Text>
-          <Text style={{ fontFamily: "Inter-regular" }}>Hoy es 25 Abril</Text>
+          <Text style={{ fontFamily: "Inter-regular" }}>{isAdmin ? "Administrador" : "Usuario"}</Text>
         </View>
 
         <View style={styles.iconWrapper}>

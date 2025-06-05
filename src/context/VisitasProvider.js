@@ -12,7 +12,6 @@ export const VisitasProvider = ({ children }) => {
 
   const obtenerVisitas = async () => {
     const url = `${config.API_VISITAS}/visitas`;
-    console.log("[VisitasContext] -> obtenerVisitas: Iniciando petición a", url);
     setLoading(true);
 
     try {
@@ -22,7 +21,6 @@ export const VisitasProvider = ({ children }) => {
         },
       });
       console.log(
-        "[VisitasContext] -> obtenerVisitas: respuesta recibida",
         response.status,
         response.data
       );
@@ -32,20 +30,16 @@ export const VisitasProvider = ({ children }) => {
         ? error.response.data
         : error.message;
       console.error(
-        "[VisitasContext] -> obtenerVisitas: Error al obtener las visitas",
         detalle
       );
       alert("Error al obtener las visitas: " + JSON.stringify(detalle));
     } finally {
       setLoading(false);
-      console.log("[VisitasContext] -> obtenerVisitas: carga finalizada");
     }
   };
 
   const crearVisita = async (nuevaVisita) => {
     const url = `${config.API_VISITAS}/visitas`;
-    console.log("[VisitasContext] -> crearVisita: Enviando a", url);
-    console.log("[VisitasContext] -> crearVisita: Datos enviados", nuevaVisita);
 
     try {
       const response = await axios.post(url, nuevaVisita, {
@@ -54,19 +48,16 @@ export const VisitasProvider = ({ children }) => {
         },
       });
       console.log(
-        "[VisitasContext] -> crearVisita: Visita creada, respuesta",
         response.status,
         response.data
       );
       await obtenerVisitas();
-      alert("Visita creada correctamente");
       return response.data;
     } catch (error) {
       const detalle = error.response
         ? error.response.data
         : error.message;
       console.error(
-        "[VisitasContext] -> crearVisita: Error al crear la visita",
         detalle
       );
       alert("Error al crear la visita: " + JSON.stringify(detalle));
@@ -75,7 +66,6 @@ export const VisitasProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    console.log("[VisitasContext] -> useEffect: Montando provider, obteniendo visitas");
     obtenerVisitas();
   }, []);
 
