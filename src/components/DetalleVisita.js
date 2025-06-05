@@ -66,7 +66,7 @@ const DetalleVisita = ({ visita }) => {
     try {
       const result = await ImagePicker.launchCameraAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
-        quality: 0.5,
+        quality: 0.3,
         allowsEditing: false,
       });
       if (!result.canceled && result.assets.length > 0) {
@@ -105,7 +105,7 @@ const DetalleVisita = ({ visita }) => {
       if (!response.ok) {
         const text = await response.text();
         throw new Error(
-          `Error ${response.status}: ${response.statusText}\n${text}`
+          `Error esta imagen es muy grande`
         );
       }
 
